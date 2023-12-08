@@ -36,6 +36,11 @@ def jeu():
     while vies > 0:  # si quantité de vies est suffisante, le joueur peu combattre l'ennemi
 
         force_adversaires = random.randint(1, 5)
+
+        if winstreak == 3:
+            SPAWN_BOSS = random.randint(5, 10)
+
+            force_adversaires = random.randint(5, 10)
         print("L'adversaire a", force_adversaires, "points de force")
         choix = menu()
 
@@ -49,18 +54,17 @@ def jeu():
             print("Vous combattez cet adversaire")
             print("Force de l’adversaire : ", force_adversaires)
             print("Niveau de vie de l’usager: ", vies)
-            print("Combat numero_combat: ", defaites)
 
             if total_d > force_adversaires:
                 print("Sur vos dés, vous avez :", total_d)
-                print("vous avez vaincus cet adversaire. Bravo !")
+                print("vous avez vaincus cet adversaire. Bravo ! =)")
                 nombre_victoires = victoires + 1
                 print("Vous avez gagné", nombre_victoires, "victoire(s)")
 
                 victoires_consécutives += 1
 
             if total_d <= force_adversaires:
-                print("Vous avez perdu contre votre adversaire")
+                print("Vous avez perdu contre votre adversaire =(")
                 print("vous avez perdu", force_adversaires, "vies")
                 vies -= force_adversaires
 
@@ -85,6 +89,9 @@ def jeu():
     while vies_boss >= 0:
         print("vies de l'usager: ", vies)
         print("potions restantes : ", nombre_potions)
+        print("Vous avez gagné. Bien joué et à la prochaine fois !")
+
+    jeu()
 
 
 jeu()
